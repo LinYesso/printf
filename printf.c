@@ -1,26 +1,44 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "main.h"
 
 /**
- * _printf - function my printf
- * @format: string whit format to print
- *
- * Return: number of chars that print
+ * _printf - a function that produces output according to a format
+ * @format: format string containing the characters and the specifiers
+ * Return: length of the formatted output string
  */
 int _printf(const char *format, ...)
 {
-	va_list args;
-	
-	int len = 0;
-	
-	if (format == NULL)
+	int (*pfunc)(va_list, flags_t *);
+	const char *p;
+	va_list arguments;
+	flags_t flags = {0, 0, 0};
+
+	register int count = 0;
+
+	va_start(arguments, format);
+	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
-	
-	va_start(args, format);
-	
-	len = _print_format(format, args);
-	va_end(args);
-	
-	return (len);
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
+	for (p = format; *p; p++)
+	{
+		if (*p == '%')
+		{
+			p++;
+			if (*p == '%')
+			{
+				count += _putchar('%');
+				continue;
+			}
+			while (get_flag(*p, &flags))
+				p++;
+			pfunc = get_print(*p);
+			count += (pfunc)
+				? pfunc(arguments, &flags)
+				: _printf("%%%c", *p);
+		} else
+			count += _putchar(*p);
+	}
+	_putchar(-1);
+	va_end(arguments);
+	return (count);
 }
