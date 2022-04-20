@@ -27,5 +27,5 @@ To use _printf you have to use the following key characters preceeded by % symbo
 The _printf() function returns an integer representing the number of symbols
 printed not counting \\0 for the string.
 .SH AUTHOR
-Yesso Lynda
+Yesso Linda
 Brou Joël
