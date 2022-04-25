@@ -1,7 +1,5 @@
-
-  
-#include "main.h"
 #include <stdlib.h>
+#include "main.h"
 
 /**
  * _print_format - A function that prints a format
