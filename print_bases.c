@@ -6,6 +6,7 @@
  * @l: va_list arguments from _printf
  * @f: pointer to the struct flags that determines
  * if a flag is passed to _printf
+ *
  * Return: the number of char printed
  */
 int print_hex(va_list l, flags_t *f)
@@ -26,6 +27,7 @@ int print_hex(va_list l, flags_t *f)
  * @l: va_list arguments from _printf
  * @f: pointer to the struct that determines
  * if a flag is passed to _printf
+ *
  * Return: the number of char printed
  */
 int print_hex_big(va_list l, flags_t *f)
@@ -40,11 +42,13 @@ int print_hex_big(va_list l, flags_t *f)
 	return (c);
 }
 
+
 /**
  * print_binary - a function that prints a number in base 2
  * @l: va_list arguments from _printf
  * @f: pointer to the struct that determines
  * if a flag is passed to _printf
+ *
  * Return: the number of char printed
  */
 int print_binary(va_list l, flags_t *f)
@@ -56,11 +60,13 @@ int print_binary(va_list l, flags_t *f)
 	return (_puts(str));
 }
 
+
 /**
  * print_octal - a function that prints a number in base 8
  * @l: va_list arguments from _printf
  * @f: pointer to the struct that determines
  * if a flag is passed to _printf$
+ *
  * Return: the number of char printed
  */
 int print_octal(va_list l, flags_t *f)

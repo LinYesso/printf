@@ -4,6 +4,7 @@
  * get_print - a function that selects the right printing function
  * depending on the conversion specifier passed to _printf
  * @s: character that holds the conversion specifier
+ *
  * Return: a pointer to the matching printing function
  */
 int (*get_print(char s))(va_list, flags_t *)
@@ -23,7 +24,7 @@ int (*get_print(char s))(va_list, flags_t *)
 		{'S', print_bigS},
 		{'p', print_address},
 		{'%', print_percent}
-		};
+	};
 	int flags = 14;
 
 	register int i;

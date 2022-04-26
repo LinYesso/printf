@@ -27,6 +27,5 @@ int get_flag(char s, flags_t *f)
 			ind = 1;
 			break;
 	}
-
 	return (ind);
 }
